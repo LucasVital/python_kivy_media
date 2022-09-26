@@ -1,0 +1,86 @@
+#:kivy 1.2.0
+#:import hex kivy.utils.get_color_from_hex
+<Media>:
+    aritmetica: chk_aritmetica
+    ponderada: chk_ponderada
+    BoxLayout:
+        canvas:
+            Color:
+                rgba: hex('#f1f5f9')
+            Rectangle:
+                pos: self.pos
+                size: root.size
+		orientation: "vertical"
+        Label:
+            text: 'Informe as notas'
+            font_size: 50
+            size_hint: None, None
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            color: hex('#0f172a')
+        Label:
+            text: 'Nota 1:'
+            size_hint: None, None
+            color: hex('#0f172a')
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        TextInput:
+            id: nota1
+            hint_text: 'Nota 1'
+            font_size: 30
+            pos_hint: {'center_x':.5, 'center_y':.5}
+            size_hint: None, None
+            color: hex('#0f172a')
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        Label:
+            text: 'Nota 2:'
+            size_hint: None, None
+            color: hex('#0f172a')
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        TextInput:
+            id: nota2
+            hint_text: 'Nota 2'
+            font_size: 30
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            size_hint: None, None
+            color: hex('#0f172a')
+        Label:
+			text: "Selecione a Fórmula"
+			font_size:32
+            color: hex('#0f172a')
+        GridLayout:
+            cols: 2
+            size_hint: None, None
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            width: 550
+            height: 150
+            canvas.before:
+                Color:
+                    rgba: hex('#FFFFFF')
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+                    
+            CheckBox:
+                group: 'media'
+                id: chk_aritmetica
+            Label:
+                text: 'Média Aritmética'
+                color: hex('#666666')
+            CheckBox:
+                group: 'media'
+                id: chk_ponderada
+            Label:
+                text: 'Média Ponderada'
+                color: hex('#666666')
+        Label:
+            id: lbResultado
+            text: ''
+            font_size: 30
+            color: hex('#0f172a')
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+        Button:
+            text: 'Calcular'
+            font_size: 30
+            size_hint: 0.2, None
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            on_press: root.calcular_media()
