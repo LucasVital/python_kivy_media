@@ -1,10 +1,7 @@
-from email import message
 import kivy
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import ObjectProperty
-
-from calcula_media import media_aritmetica, media_ponderada
 
 
 class Media(BoxLayout):
